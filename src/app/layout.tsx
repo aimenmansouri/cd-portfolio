@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { JetBrains_Mono as font } from "next/font/google";
+import { Roboto_Mono as font } from "next/font/google";
 import "./globals.css";
 
 const myfont = font({ subsets: ["latin"], weight: ["400"] });

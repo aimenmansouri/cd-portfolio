@@ -1,36 +1,19 @@
-import React, { useState } from "react";
+import React from "react";
+import MiniNavbar from "./MiniNavBar";
 
-function Floating() {
-  const [position, setPosition] = useState({ top: 100, left: 100 });
-  let dragOffset = { x: 0, y: 0 };
-
-  const handleMouseDown = (e) => {
-    const offsetX = e.clientX - position.left;
-    const offsetY = e.clientY - position.top;
-    dragOffset = { x: offsetX, y: offsetY };
-
-    document.addEventListener("mouseup", handleMouseUp);
-
-    function handleMouseUp(e) {
-      setPosition({
-        top: e.clientY - dragOffset.y,
-        left: e.clientX - dragOffset.x,
-      });
-      document.removeEventListener("mouseup", handleMouseUp);
-    }
-  };
-
+interface FloatingProps {
+  setShowFloating: Function;
+}
+function Floating(props: FloatingProps) {
   return (
-    <div className="absolute h-full w-full">
-      <div className="relative">
-        <div
-          className="h-32 w-40 bg-white absolute z-40"
-          style={{
-            top: `${position.top}px`,
-            left: `${position.left}px`,
-          }}
-          onMouseDown={handleMouseDown}
-        ></div>
+    <div className="absolute h-full w-full bg-bg-white/20 backdrop-blur-sm z-50">
+      <div className="flex items-center h-screen justify-center">
+        <div className="h-[400px] w-[800px] absolute">
+          <MiniNavbar setShowFloating={props.setShowFloating} />
+          <div className="bg-white/10 h-full p-3 rounded-b border border-t-0 border-slate-900">
+            <button onClick={() => props.setShowFloating(false)}>close</button>
+          </div>
+        </div>
       </div>
     </div>
   );
