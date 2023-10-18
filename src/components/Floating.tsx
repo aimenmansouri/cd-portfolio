@@ -10,7 +10,7 @@ function Floating(props: FloatingProps) {
       <div className="flex items-center h-screen justify-center">
         <div className="h-[400px] w-[800px] absolute">
           <MiniNavbar setShowFloating={props.setShowFloating} />
-          <div className="bg-white/10 h-full p-3 rounded-b border border-t-0 border-slate-900">
+          <div className="bg-white/50 h-full p-3 rounded-b border border-t-0 border-slate-900">
             <button onClick={() => props.setShowFloating(false)}>close</button>
           </div>
         </div>
