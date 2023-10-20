@@ -7,6 +7,7 @@ import { SideIconProps } from "@/components/SideIcon";
 import SideIcon from "@/components/SideIcon";
 import TopBar from "@/components/TopBar";
 import { motion } from "framer-motion";
+import Terminal from "@/components/Terminal";
 
 export default function Page() {
   const [showFloating, setShowFloating] = useState(false);
@@ -44,13 +45,13 @@ export default function Page() {
           </div>
         </div>*/}
 
-      <div className="flex flex-col h-screen">
+      <div className="flex flex-col h-screen overflow-y-hidden">
         <div className="flex h-full items-center">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              delay: 1.5,
+              delay: 2,
               duration: 1,
             }}
             className="h-3/5 w-3/5 mx-auto mt-20"
@@ -59,32 +60,31 @@ export default function Page() {
               setShowFloating={setShowFloating}
               showFloating={showFloating}
             />
-            <div className="h-full w-full px-3 py-1 backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md">
-              <div className=" text-emerald-400">132</div>
-              <div className=" text-green-400 flex space-x-2">
-                <div className="">User@aymene.net : &gt; &gt;</div>
-                <div className=" grow">
-                  <input
-                    type="text"
-                    className="bg-transparent text-white outline-none w-full"
-                  />
-                </div>
-              </div>
-            </div>
+            <Terminal />
           </motion.div>
         </div>
-        <div className="mt-auto w-fit mx-auto">
+        <div className="mt-auto w-fit mx-auto over">
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{
-              delay: 0.75,
+              delay: 0.5,
               duration: 1,
             }}
           >
             <div className="flex mx-auto px-3 py-1 rounded-t-lg items-center justify-center bg-slate-900/70 shadow">
-              {sideIcons.map((sideIcon) => (
-                <SideIcon key={sideIcon.imageLink} {...sideIcon} />
+              {sideIcons.map((sideIcon, index) => (
+                <motion.div
+                  key={sideIcon.imageLink}
+                  initial={{ y: 40 }}
+                  animate={{ y: 0 }}
+                  transition={{
+                    delay: 0.5 + index / 4,
+                    duration: 1,
+                  }}
+                >
+                  <SideIcon {...sideIcon} />
+                </motion.div>
               ))}
             </div>
           </motion.div>

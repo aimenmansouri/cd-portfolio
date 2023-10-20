@@ -1,0 +1,27 @@
+[
+  {
+    "id": 0,
+    "belong_to": -1,
+    "name": "rootFolder",
+    "type": "folder"
+  },
+  {
+    "id": 2,
+    "belong_to": 0,
+    "name": "afolder",
+    "type": "folder"
+  },
+  {
+    "id": 1,
+    "belong_to": 0,
+    "name": "text",
+    "type": "text_file",
+    "val": "aimen mansouri portfolio"
+  },
+  {
+    "id": 3,
+    "belong_to": 2,
+    "name": "bfolder",
+    "type": "folder"
+  }
+]
