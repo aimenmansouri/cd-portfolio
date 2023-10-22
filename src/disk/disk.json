@@ -18,5 +18,28 @@
     "type": "project",
     "description": "Lightweight Portfolio website built using Next.js 13 and Contentlayer. It's fully static, providing fast and lightweight pages for a great user experience. The UI is styled using Tailwind CSS and Tailwind Typography for articles.",
     "link": "https://aymene.net/posts/aymene.net-(portfolio)"
+  },
+
+  {
+    "id": 3,
+    "belong_to": 0,
+    "name": "Education",
+    "type": "folder"
+  },
+  {
+    "id": 5,
+    "belong_to": 0,
+    "name": "about-me",
+    "type": "text",
+    "title": "About me",
+    "text": "I'm a self-driven problem solver with a diverse skill set, always eager to adapt to new technologies and challenges. My relentless pursuit of efficiency drives me to seek superior results, and I'm continually curious about discovering new fields, embracing new challenges, and learning new things."
+  },
+  {
+    "id": 4,
+    "belong_to": 3,
+    "name": "ba",
+    "type": "education",
+    "description": "Lightweight Portfolio website built using Next.js 13 and Contentlayer. It's fully static, providing fast and lightweight pages for a great user experience. The UI is styled using Tailwind CSS and Tailwind Typography for articles.",
+    "link": "https://aymene.net/posts/aymene.net-(portfolio)"
   }
 ]

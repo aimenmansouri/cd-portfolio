@@ -24,6 +24,9 @@ function getFile(disk: diskType[], name: string) {
   return false;
 }
 
+const comMem: string[] = [""];
+let comMemPoint = 0;
+
 export default function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null);
   const cdDivRef = useRef<HTMLDivElement>();
@@ -35,6 +38,8 @@ export default function Terminal() {
     belong_to: -1,
     name: "",
     type: "",
+    description: "",
+    link: "",
   });
 
   const [output, setOutput] = useState<React.ReactNode[]>([]);
@@ -93,21 +98,30 @@ export default function Terminal() {
         content = disk.filter((f) => f.belong_to == cdid);
         const file = getFile(content, command[1]);
         if (file) {
+          let fileOut: React.ReactNode;
           switch (file.type) {
-            case "project":
-              const fileOut: React.ReactNode = (
+            case "text":
+              fileOut = (
                 <div>
                   <p className="ml-3 my-2 text-sky-400">
-                    <span className="font-semibold">Project description</span>{" "}
+                    <span className="font-semibold">{file.title} :</span>{" "}
+                    {file.text}
+                    <br />
+                  </p>
+                </div>
+              );
+              toOut.push(fileOut);
+              break;
+            case "project":
+              fileOut = (
+                <div>
+                  <p className="ml-3 my-2 text-sky-400">
+                    <span className="font-semibold">Project description :</span>{" "}
                     {file.description}
                     <br />
                     <span className="font-semibold">
                       Read full post at :{" "}
-                      <a
-                        className=" hover:underline"
-                        href={file.link}
-                        target="blank"
-                      >
+                      <a className="underline" href={file.link} target="blank">
                         {file.name}
                       </a>
                     </span>{" "}
@@ -135,6 +149,7 @@ export default function Terminal() {
         break;
       case "clear":
         setClear(!clear);
+        return;
         break;
       case "cd":
         if (command.length < 2) {
@@ -234,14 +249,32 @@ export default function Terminal() {
     }
     setOutput([...output, ...toOut]);
   };
+
   function handelEnter(e: KeyboardEvent) {
+    if (e.code === "ArrowUp") {
+      comMemPoint = Math.max(0, comMemPoint - 1);
+      inputRef.current.value = comMem[comMemPoint];
+      return;
+    } else if (e.code === "ArrowDown") {
+      comMemPoint = Math.min(comMem.length - 1, comMemPoint + 1);
+      inputRef.current.value = comMem[comMemPoint];
+      return;
+    }
     if (trim(inputRef.current?.value || "") == "") {
       inputRef.current.value = "";
       return;
     }
     if (e.code === "Enter" || e.code === "NumpadEnter") {
       proccessInput(inputRef.current?.value || "");
+
+      if (comMem[comMem.length - 2] != inputRef.current.value) {
+        comMem.splice(-1, 0, inputRef.current.value);
+        comMemPoint = comMem.length - 1;
+        console.log(comMemPoint);
+      }
       inputRef.current.value = "";
+      console.log(comMem);
+      console.log(comMemPoint);
     }
   }
   return (
@@ -250,7 +283,7 @@ export default function Terminal() {
         inputRef.current?.focus();
       }}
       ref={cdDivRef}
-      className="h-[34rem]  w-full px-3 py-1 text-sm hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
+      className="h-[34rem]  w-full px-3 py-1 text-m hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
     >
       <div className="text-green-400">
         {output.map((dv) => (
@@ -261,7 +294,9 @@ export default function Terminal() {
         <div className="">User@aymene.net : {path} &gt; </div>
         <div className="grow">
           <input
+            onChange={() => (comMemPoint = comMem.length - 1)}
             onKeyDown={(e) => handelEnter(e)}
+            onBlur={() => (comMemPoint = comMem.length - 1)}
             ref={inputRef}
             type="text"
             className="bg-transparent text-white outline-none w-full"
