@@ -37,7 +37,7 @@ export default function Page() {
     <div className="relative site-back h-screen w-full bg-cover">
       <TopBar />
       {showFloating && <Floating setShowFloating={setShowFloating} />}
-      {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow">
+      {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow-sm">
           <div className="h-fit space-y-6 px-3">
             {sideIcons.map((sideIcon) => (
               <SideIcon key={sideIcon.imageLink} {...sideIcon} />
