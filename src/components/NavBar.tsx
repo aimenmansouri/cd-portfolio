@@ -47,7 +47,9 @@ export default function Navbar(props: NavbarProps) {
           </svg>
         </button>
       </div>
-      <div className="">Aymene_masnouri@https://aymene.net:~</div>
+      <div className="md:block hidden">
+        Aymene_masnouri@https://aymene.net:~
+      </div>
       <div className="flex space-x-3">
         <div className="rounded-full h-2 w-2 bg-amber-500"></div>
         <div className="rounded-full h-2 w-2 bg-amber-500"></div>

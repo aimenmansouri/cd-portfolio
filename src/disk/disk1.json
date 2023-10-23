@@ -2,7 +2,7 @@
   {
     "id": 0,
     "belong_to": -1,
-    "name": "rootFolder",
+    "name": "Root",
     "type": "folder"
   },
   {
@@ -14,12 +14,11 @@
   {
     "id": 2,
     "belong_to": 1,
-    "name": "portfolio-website",
+    "name": "aymene.net",
     "type": "project",
     "description": "Lightweight Portfolio website built using Next.js 13 and Contentlayer. It's fully static, providing fast and lightweight pages for a great user experience. The UI is styled using Tailwind CSS and Tailwind Typography for articles.",
     "link": "https://aymene.net/posts/aymene.net-(portfolio)"
   },
-
   {
     "id": 3,
     "belong_to": 0,
@@ -43,9 +42,16 @@
     "text": "I'm a self-driven problem solver with a diverse skill set, always eager to adapt to new technologies and challenges. My relentless pursuit of efficiency drives me to seek superior results, and I'm continually curious about discovering new fields, embracing new challenges, and learning new things."
   },
   {
-    "id": 4,
+    "id": 8,
     "belong_to": 3,
-    "name": "web-dev",
+    "name": "prog-langs",
+    "type": "list",
+    "list": ["PHP", "JavaScript", "TypeScript", "Python", "C"]
+  },
+  {
+    "id": 9,
+    "belong_to": 3,
+    "name": "web",
     "type": "list",
     "list": [
       "Laravel",
@@ -55,5 +61,52 @@
       "Tailwind CSS",
       "Bootstrap CSS"
     ]
+  },
+  {
+    "id": 10,
+    "belong_to": 3,
+    "name": "db",
+    "type": "list",
+    "list": ["MySQL", "MongoDB", "Prisma ORM", "Laravel Eloquent"]
+  },
+  {
+    "id": 11,
+    "belong_to": 3,
+    "name": "desk-Dev",
+    "type": "list",
+    "list": ["PyQt"]
+  },
+  {
+    "id": 12,
+    "belong_to": 3,
+    "name": "ver-ctrl",
+    "type": "list",
+    "list": ["Git", "GitHub"]
+  },
+  {
+    "id": 13,
+    "belong_to": 3,
+    "name": "ai",
+    "type": "list",
+    "list": [
+      "Machine Learning",
+      "Computer Vision",
+      "PIL (Python Imaging Library)",
+      "NumPy"
+    ]
+  },
+  {
+    "id": 14,
+    "belong_to": 3,
+    "name": "networking",
+    "type": "list",
+    "list": ["Understanding of Networking Basics"]
+  },
+  {
+    "id": 15,
+    "belong_to": 3,
+    "name": "scripting",
+    "type": "list",
+    "list": ["Automation with Python", "GNU Bash (shell scripting)"]
   }
 ]

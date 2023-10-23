@@ -1,5 +1,5 @@
 import React, { useRef, useState, useEffect } from "react";
-import disk from "@/disk/disk.json";
+import disk from "@/disk/disk1.json";
 import Error from "./output/Error";
 
 interface diskType {
@@ -126,6 +126,18 @@ export default function Terminal() {
                       </a>
                     </span>{" "}
                   </p>
+                </div>
+              );
+              toOut.push(fileOut);
+              break;
+            case "list":
+              fileOut = (
+                <div>
+                  <ul className="text-sky-400">
+                    {file.list.map((skill: string) => (
+                      <li key={skill}>- {skill}</li>
+                    ))}
+                  </ul>
                 </div>
               );
               toOut.push(fileOut);
@@ -283,7 +295,7 @@ export default function Terminal() {
         inputRef.current?.focus();
       }}
       ref={cdDivRef}
-      className="h-[34rem]  w-full px-3 py-1 text-m hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
+      className="md:h-[55vh] h-[70vh]  w-full px-3 py-1 text-m hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
     >
       <div className="text-green-400">
         {output.map((dv) => (
@@ -291,7 +303,12 @@ export default function Terminal() {
         ))}
       </div>
       <div className=" text-green-400 flex space-x-2">
-        <div className="">User@aymene.net : {path} &gt; </div>
+        <div className="">
+          <span className="md:block hidden">
+            User@aymene.net : {path} &gt;{" "}
+          </span>
+          <span className="md:hidden block">: {path} &gt; </span>
+        </div>
         <div className="grow">
           <input
             onChange={() => (comMemPoint = comMem.length - 1)}

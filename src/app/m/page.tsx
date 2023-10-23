@@ -43,18 +43,11 @@ export default function Page() {
   return (
     <BackgroundImageSwitcher
       imageArray={imageArray}
-      className="relative h-screen w-full bg-cover"
+      className="relative h-screen w-full bg-cover text-sm"
       interval={3000}
     >
       <TopBar />
       {showFloating && <Floating setShowFloating={setShowFloating} />}
-      {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow-sm">
-          <div className="h-fit space-y-6 px-3">
-            {sideIcons.map((sideIcon) => (
-              <SideIcon key={sideIcon.imageLink} {...sideIcon} />
-            ))}
-          </div>
-        </div>*/}
 
       <div className="flex flex-col h-screen overflow-y-hidden">
         <div className="flex h-full items-center">
@@ -65,7 +58,7 @@ export default function Page() {
               delay: 2,
               duration: 1,
             }}
-            className="h-3/5 w-3/5 mx-auto mt-20"
+            className="h-11/12 w-[96%] mx-auto mt-20"
           >
             <Navbar
               setShowFloating={setShowFloating}

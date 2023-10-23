@@ -3,7 +3,8 @@
 @tailwind utilities;
 
 .site-back {
-  background-image: url(https://r4.wallpaperflare.com/wallpaper/12/1008/45/earth-4k-best-desktop-download-wallpaper-b876cd2860b07c48b03ca18e6852943a.jpg);
+  background-image: url(https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg);
+  background-position: center;
 }
 
 /* Customize scrollbar styles for a terminal folder appearance */
@@ -21,4 +22,19 @@
 
 ::-webkit-scrollbar-track {
   background: #1e293b;
+}
+
+.blink {
+  animation: blink 2s infinite;
+}
+
+@keyframes blink {
+  0%,
+  50% {
+    opacity: 0;
+  }
+  51%,
+  100% {
+    opacity: 1;
+  }
 }
