@@ -5,6 +5,7 @@ interface BackgroundImageSwitcherProps {
   interval?: number;
   className?: string;
   children?: ReactNode;
+  dark: boolean;
 }
 
 const BackgroundImageSwitcher: React.FC<BackgroundImageSwitcherProps> = ({
@@ -12,18 +13,17 @@ const BackgroundImageSwitcher: React.FC<BackgroundImageSwitcherProps> = ({
   interval = 10000,
   className,
   children,
+  dark,
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % imageArray.length);
-    }, interval);
-
-    return () => {
-      clearInterval(timer);
-    };
-  }, [interval, imageArray]);
+    if (dark) {
+      setCurrentImageIndex(1);
+    } else {
+      setCurrentImageIndex(0);
+    }
+    console.log(currentImageIndex);
+  });
 
   const backgroundImageStyle = {
     backgroundImage: `url(${imageArray[currentImageIndex]})`,
@@ -37,7 +37,7 @@ const BackgroundImageSwitcher: React.FC<BackgroundImageSwitcherProps> = ({
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center",
-        transition: "background-image 1s ease-in-out",
+        transition: `background-image ${interval}s ease-in-out`,
       }}
     >
       {children}

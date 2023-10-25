@@ -71,7 +71,12 @@ export default function Terminal() {
 
     const thecom = (
       <div className="space-x-2 flex">
-        <div>User@aymene.net : {path} &gt;</div>
+        <div>
+          <span className="md:block hidden">
+            User@aymene.net : {path} &gt;{" "}
+          </span>
+          <span className="md:hidden block">: {path} &gt; </span>
+        </div>
         <span className="text-white">{command.join(" ")}</span>
         <div></div>
       </div>
@@ -81,6 +86,52 @@ export default function Terminal() {
     let content: diskType[];
 
     switchLabel: switch (command[0]) {
+      case "help":
+        let fileOut = (
+          <div className="my-3">
+            <ul>
+              <li>cd dirName: enter directory</li>
+              <li>ls : list current dir content</li>
+              <li>cat fileName : read file</li>
+              <li>clear : clear command line</li>
+              <li className="flex items-center">
+                Use
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
+                  />
+                </svg>
+                and
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
+                  />
+                </svg>
+                to browse commands history
+              </li>
+            </ul>
+          </div>
+        );
+        toOut.push(fileOut);
+        break;
       case "cat":
         if (command.length < 2) {
           const err = (
@@ -282,11 +333,8 @@ export default function Terminal() {
       if (comMem[comMem.length - 2] != inputRef.current.value) {
         comMem.splice(-1, 0, inputRef.current.value);
         comMemPoint = comMem.length - 1;
-        console.log(comMemPoint);
       }
       inputRef.current.value = "";
-      console.log(comMem);
-      console.log(comMemPoint);
     }
   }
   return (
@@ -307,7 +355,7 @@ export default function Terminal() {
           <span className="md:block hidden">
             User@aymene.net : {path} &gt;{" "}
           </span>
-          <span className="md:hidden block">: {path} &gt; </span>
+          <span className="md:hidden block">{path}:</span>
         </div>
         <div className="grow">
           <input

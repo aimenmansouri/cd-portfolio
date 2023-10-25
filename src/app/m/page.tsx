@@ -37,16 +37,17 @@ export default function Page() {
   ];
   const imageArray: string[] = [
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/2.jpg",
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg",
   ];
+  const [dark, setDark] = useState(false);
   return (
     <BackgroundImageSwitcher
       imageArray={imageArray}
-      className="relative h-screen w-full bg-cover text-sm"
-      interval={3000}
+      className="relative h-screen w-full bg-cover"
+      interval={2}
+      dark={dark}
     >
-      <TopBar />
+      <TopBar setDark={setDark} />
       {showFloating && <Floating setShowFloating={setShowFloating} />}
 
       <div className="flex flex-col h-screen overflow-y-hidden">

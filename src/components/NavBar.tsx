@@ -8,7 +8,7 @@ export default function Navbar(props: NavbarProps) {
     props.setShowFloating(!props.showFloating);
   };
   return (
-    <div className="h-8 bg-slate-900 backdrop-blur-0 rounded-t flex justify-between px-2 items-center text-white text-sm select-none">
+    <div className="h-8 bg-slate-900 backdrop-blur-0 rounded-t flex justify-between px-2 items-center text-white select-none">
       <div className="flex items-center space-x-2">
         <button className="text-white p-0.5 hover:outline outline-1 outline-slate-600 rounded-sm hover:bg-slate-800 transition-colors duration-100">
           <svg

@@ -37,16 +37,24 @@ export default function Page() {
   ];
   const imageArray: string[] = [
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
+    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg",
+  ];
+
+  const imageArray2: string[] = [
+    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/2.jpg",
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg",
   ];
+
+  const [dark, setDark] = useState(false);
   return (
     <BackgroundImageSwitcher
       imageArray={imageArray}
       className="relative h-screen w-full bg-cover"
-      interval={3000}
+      interval={2}
+      dark={dark}
     >
-      <TopBar />
+      <TopBar setDark={setDark} />
       {showFloating && <Floating setShowFloating={setShowFloating} />}
       {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow-sm">
           <div className="h-fit space-y-6 px-3">
@@ -65,7 +73,7 @@ export default function Page() {
               delay: 2,
               duration: 1,
             }}
-            className="h-3/5 w-3/5 mx-auto mt-20"
+            className="h-3/5 w-3/5 mx-auto mt-10"
           >
             <Navbar
               setShowFloating={setShowFloating}
