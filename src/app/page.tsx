@@ -9,7 +9,7 @@ import TopBar from "@/components/TopBar";
 import { motion } from "framer-motion";
 import Terminal from "@/components/Terminal";
 import BackgroundImageSwitcher from "@/components/BgWrapper";
-import { stringify } from "querystring";
+import AnimatedText from "@/components/AnimatedText";
 
 export default function Page() {
   const [showFloating, setShowFloating] = useState(false);
@@ -65,22 +65,27 @@ export default function Page() {
         </div>*/}
 
       <div className="flex flex-col h-screen overflow-y-hidden">
-        <div className="flex h-full items-center">
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{
-              delay: 2,
-              duration: 1,
-            }}
-            className="h-3/5 w-3/5 mx-auto mt-10"
-          >
-            <Navbar
-              setShowFloating={setShowFloating}
-              showFloating={showFloating}
-            />
-            <Terminal />
-          </motion.div>
+        <div className="flex items-center h-full w-full">
+          <div className="flex flex-col grow h-fit items-center">
+            <div className="">
+              <AnimatedText textArray={["aimen mansoutri"]} />
+            </div>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{
+                delay: 2,
+                duration: 1,
+              }}
+              className="h-3/5 w-3/5 mx-auto mt-10"
+            >
+              <Navbar
+                setShowFloating={setShowFloating}
+                showFloating={showFloating}
+              />
+              <Terminal />
+            </motion.div>
+          </div>
         </div>
         <div className="mt-auto w-fit mx-auto over">
           <motion.div

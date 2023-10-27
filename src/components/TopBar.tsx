@@ -16,7 +16,7 @@ export default function TopBar(props: { setDark: Function }) {
         <Clock />
       </div>
       <div className="flex space-x-3 items-center basis-1/6 justify-end">
-        <div className="flex flex-row justify-between py-2">
+        <div className="flex flex-row justify-between">
           <label
             htmlFor="dark-toggle"
             className="flex items-center cursor-pointer"
@@ -48,7 +48,6 @@ export default function TopBar(props: { setDark: Function }) {
                 )}
               </div>
             </div>
-            <div className={`ml-3 font-medium text-sm`}></div>
           </label>
         </div>
         <div className="bg-slate-200 h-5 w-[2px]"></div>
