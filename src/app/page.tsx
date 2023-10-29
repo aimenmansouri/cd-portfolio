@@ -67,9 +67,6 @@ export default function Page() {
       <div className="flex flex-col h-screen overflow-y-hidden">
         <div className="flex items-center h-full w-full">
           <div className="flex flex-col grow h-fit items-center">
-            <div className="">
-              <AnimatedText textArray={["aimen mansoutri"]} />
-            </div>
             <motion.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -77,7 +74,7 @@ export default function Page() {
                 delay: 2,
                 duration: 1,
               }}
-              className="h-3/5 w-3/5 mx-auto mt-10"
+              className="h-3/5 w-3/5 mx-auto lg:mt-32 mt-20"
             >
               <Navbar
                 setShowFloating={setShowFloating}

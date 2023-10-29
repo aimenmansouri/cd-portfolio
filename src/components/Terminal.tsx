@@ -1,6 +1,7 @@
 import React, { useRef, useState, useEffect } from "react";
 import disk from "@/disk/disk1.json";
 import Error from "./output/Error";
+import Terminalintro from "./TerminalIntro";
 
 interface diskType {
   id: number;
@@ -346,16 +347,17 @@ export default function Terminal() {
       className="md:h-[55vh] h-[70vh]  w-full px-3 py-1 text-m hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
     >
       <div className="text-green-400">
+        <Terminalintro />
         {output.map((dv) => (
           <div key={crypto.randomUUID()}>{dv}</div>
         ))}
       </div>
-      <div className=" text-green-400 flex space-x-2">
-        <div className="">
+      <div className="text-green-400 flex space-x-2">
+        <div>
           <span className="md:block hidden">
             User@aymene.net : {path} &gt;{" "}
           </span>
-          <span className="md:hidden block">{path}:</span>
+          <span className="md:hidden ">{path}: &gt;</span>
         </div>
         <div className="grow">
           <input
