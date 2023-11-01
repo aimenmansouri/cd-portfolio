@@ -17,7 +17,7 @@ function Floating(props: FloatingProps) {
       <div className="flex items-center h-screen justify-center">
         <div className="md:w-fit h-fit w-11/12  mx-20 md:m-0 absolute">
           <MiniNavbar setShowFloating={props.setShowFloating} />
-          <div className="bg-slate-600/30 h-full p-3 rounded-b border border-t-0 border-slate-900">
+          <div className="bg-slate-600/50 h-full p-3 rounded-b border border-t-0 border-slate-900">
             <div className="text-green-400 text-lg">
               <ul>
                 <li>cd dirName: enter directory</li>

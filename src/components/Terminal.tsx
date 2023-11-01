@@ -347,7 +347,9 @@ export default function Terminal() {
       className="md:h-[55vh] h-[70vh]  w-full px-3 py-1 text-m hover:cursor-text backdrop-blur-[2px] bg-slate-900/75 rounded-b border border-t-0 border-slate-900 shadow-slate-900/20 shadow-md overflow-y-scroll"
     >
       <div className="text-green-400">
-        <Terminalintro />
+        <div className="lg:flex items-center block space-x-3">
+          <Terminalintro />
+        </div>
         {output.map((dv) => (
           <div key={crypto.randomUUID()}>{dv}</div>
         ))}

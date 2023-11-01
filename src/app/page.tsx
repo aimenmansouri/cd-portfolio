@@ -35,10 +35,7 @@ export default function Page() {
       name: "Github",
     },
   ];
-  const imageArray: string[] = [
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg",
-  ];
+  const imageArray: string[] = ["/bg/1.jpg", "/bg/3.jpg"];
 
   const imageArray2: string[] = [
     "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
@@ -56,6 +53,12 @@ export default function Page() {
     >
       <TopBar setDark={setDark} />
       {showFloating && <Floating setShowFloating={setShowFloating} />}
+      <div className="absolute lg:block hidden bottom-0 right-0 text-slate-500 text-sm p-1">
+        Built with 💙 by{" "}
+        <a href="https://aymene.net" className="underline">
+          Aymene Mansouri
+        </a>
+      </div>
       {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow-sm">
           <div className="h-fit space-y-6 px-3">
             {sideIcons.map((sideIcon) => (
