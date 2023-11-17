@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { Pixelify_Sans as font } from "next/font/google";
 import { motion } from "framer-motion";
 

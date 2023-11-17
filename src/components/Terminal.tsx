@@ -5,11 +5,14 @@ import Terminalintro from "./TerminalIntro";
 
 interface diskType {
   id: number;
+  title?: string;
   belong_to: number;
   name: string;
   type: string;
   description: string;
   link: string;
+  text?: string;
+  list?: string[];
 }
 
 function trim(s: string) {
@@ -30,11 +33,11 @@ let comMemPoint = 0;
 
 export default function Terminal() {
   const inputRef = useRef<HTMLInputElement>(null);
-  const cdDivRef = useRef<HTMLDivElement>();
+  const cdDivRef = useRef<HTMLDivElement | null>(null);
 
   const [cdid, setCdid] = useState(0);
   const [path, setPath] = useState<string>("");
-  const [cd, setCd] = useState<diskType>({
+  const [cd, setCd] = useState<any>({
     id: -1,
     belong_to: -1,
     name: "",
@@ -186,7 +189,7 @@ export default function Terminal() {
               fileOut = (
                 <div>
                   <ul className="text-sky-400">
-                    {file.list.map((skill: string) => (
+                    {file.list?.map((skill: string) => (
                       <li key={skill}>- {skill}</li>
                     ))}
                   </ul>
@@ -314,7 +317,7 @@ export default function Terminal() {
     setOutput([...output, ...toOut]);
   };
 
-  function handelEnter(e: KeyboardEvent) {
+  function handelEnter(e: React.KeyboardEvent<HTMLInputElement>) {
     if (inputRef.current) {
       // for error
       if (e.code === "ArrowUp") {

@@ -20,6 +20,14 @@
     "link": "https://aymene.net/posts/aymene.net-(portfolio)"
   },
   {
+    "id": 10,
+    "belong_to": 1,
+    "name": "The-rest",
+    "type": "project",
+    "description": "You can find the rest of my work in the link below.",
+    "link": "https://aymene.net/projects"
+  },
+  {
     "id": 3,
     "belong_to": 0,
     "name": "Skills",

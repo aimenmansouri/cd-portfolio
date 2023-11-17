@@ -9,7 +9,6 @@ import TopBar from "@/components/TopBar";
 import { motion } from "framer-motion";
 import Terminal from "@/components/Terminal";
 import BackgroundImageSwitcher from "@/components/BgWrapper";
-import AnimatedText from "@/components/AnimatedText";
 
 export default function Page() {
   const [showFloating, setShowFloating] = useState(false);
@@ -20,28 +19,22 @@ export default function Page() {
       name: "Github",
     },
     {
-      link: "https://github.com/aimenmansouri",
+      link: "https://www.linkedin.com/in/aymene-mansouri-a06b47288",
       imageLink: "/social/linkedin.png",
-      name: "Github",
+      name: "Linkedin",
     },
     {
-      link: "https://github.com/aimenmansouri",
+      link: "https://twitter.com",
       imageLink: "/social/twitter.png",
-      name: "Github",
+      name: "X",
     },
     {
-      link: "https://github.com/aimenmansouri",
+      link: "https://www.facebook.com/aimen.aimenrma",
       imageLink: "/social/facebook.png",
-      name: "Github",
+      name: "Facebook",
     },
   ];
   const imageArray: string[] = ["/bg/1.jpg", "/bg/3.jpg"];
-
-  const imageArray2: string[] = [
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/1.jpg",
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/2.jpg",
-    "https://cdn.dynamicwallpaper.club/wallpapers/e4ynelwzzr6/thumbs/1600/3.jpg",
-  ];
 
   const [dark, setDark] = useState(false);
   return (
@@ -59,13 +52,6 @@ export default function Page() {
           Aymene Mansouri
         </a>
       </div>
-      {/*<div className="basis-[90px] flex items-center justify-center bg-slate-900/70 shadow-sm">
-          <div className="h-fit space-y-6 px-3">
-            {sideIcons.map((sideIcon) => (
-              <SideIcon key={sideIcon.imageLink} {...sideIcon} />
-            ))}
-          </div>
-        </div>*/}
 
       <div className="flex flex-col h-screen overflow-y-hidden">
         <div className="flex items-center h-full w-full">

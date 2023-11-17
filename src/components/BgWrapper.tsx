@@ -16,14 +16,33 @@ const BackgroundImageSwitcher: React.FC<BackgroundImageSwitcherProps> = ({
   dark,
 }) => {
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
   useEffect(() => {
-    if (dark) {
-      setCurrentImageIndex(1);
-    } else {
-      setCurrentImageIndex(0);
-    }
-    console.log(currentImageIndex);
-  }, [dark, currentImageIndex]);
+    const preloadImages = () => {
+      imageArray.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+      });
+    };
+
+    preloadImages();
+  }, [imageArray]);
+
+  useEffect(() => {
+    const switchImage = () => {
+      if (dark) {
+        setCurrentImageIndex(1);
+      } else {
+        setCurrentImageIndex(0);
+      }
+    };
+
+    switchImage();
+
+    const intervalId = setInterval(switchImage, interval * 1000);
+
+    return () => clearInterval(intervalId);
+  }, [dark, interval]);
 
   const backgroundImageStyle = {
     backgroundImage: `url(${imageArray[currentImageIndex]})`,
