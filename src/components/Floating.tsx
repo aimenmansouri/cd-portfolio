@@ -18,46 +18,21 @@ function Floating(props: FloatingProps) {
         <div className="md:w-fit h-fit w-11/12  mx-20 md:m-0 absolute">
           <MiniNavbar setShowFloating={props.setShowFloating} />
           <div className="bg-slate-600/50 h-full p-3 rounded-b border border-t-0 border-slate-900">
-            <div className="text-green-400 text-lg">
-              <ul>
-                <li>cd dirName: enter directory</li>
-                <li>ls : list current dir content</li>
-                <li>cat fileName : read file</li>
-                <li>clear : clear command line</li>
-                <li className="flex items-center">
-                  Use
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M12 19.5v-15m0 0l-6.75 6.75M12 4.5l6.75 6.75"
-                    />
-                  </svg>
-                  and
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    strokeWidth={1.5}
-                    stroke="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      d="M19.5 13.5L12 21m0 0l-7.5-7.5M12 21V3"
-                    />
-                  </svg>
-                  to browse commands history
-                </li>
-              </ul>
+            <div className="text-green-400 text-lg max-w-sm">
+              <p>
+                Employing <strong>Next.js 13</strong>,{" "}
+                <strong>Framer Motion</strong>, and <strong>Tailwind</strong>,
+                this portfolio simulates a <strong>Linux terminal</strong>,
+                utilizing a <strong>JSON file system</strong> as a disk for data
+                access. Users can navigate through content using commands like
+                &apos;
+                <strong>cd dirname</strong>,&apos; &apos;<strong>ls</strong>
+                &apos; for directory listing, and &apos;
+                <strong>cat filename</strong>&apos; to read files. The interface
+                replicates a <strong>command-line structure</strong>, offering
+                an experience akin to navigating a{" "}
+                <strong>Linux terminal</strong> within a website environment.
+              </p>
             </div>
           </div>
         </div>

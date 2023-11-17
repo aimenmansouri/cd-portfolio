@@ -23,7 +23,7 @@ const BackgroundImageSwitcher: React.FC<BackgroundImageSwitcherProps> = ({
       setCurrentImageIndex(0);
     }
     console.log(currentImageIndex);
-  });
+  }, [dark, currentImageIndex]);
 
   const backgroundImageStyle = {
     backgroundImage: `url(${imageArray[currentImageIndex]})`,

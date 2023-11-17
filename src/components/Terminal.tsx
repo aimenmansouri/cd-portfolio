@@ -84,7 +84,7 @@ export default function Terminal() {
     );
     toOut.push(thecom);
 
-    let content: diskType[];
+    let content: any[];
 
     switchLabel: switch (command[0]) {
       case "help":
@@ -315,29 +315,33 @@ export default function Terminal() {
   };
 
   function handelEnter(e: KeyboardEvent) {
-    if (e.code === "ArrowUp") {
-      comMemPoint = Math.max(0, comMemPoint - 1);
-      inputRef.current.value = comMem[comMemPoint];
-      return;
-    } else if (e.code === "ArrowDown") {
-      comMemPoint = Math.min(comMem.length - 1, comMemPoint + 1);
-      inputRef.current.value = comMem[comMemPoint];
-      return;
-    }
-    if (trim(inputRef.current?.value || "") == "") {
-      inputRef.current.value = "";
-      return;
-    }
-    if (e.code === "Enter" || e.code === "NumpadEnter") {
-      proccessInput(inputRef.current?.value || "");
-
-      if (comMem[comMem.length - 2] != inputRef.current.value) {
-        comMem.splice(-1, 0, inputRef.current.value);
-        comMemPoint = comMem.length - 1;
+    if (inputRef.current) {
+      // for error
+      if (e.code === "ArrowUp") {
+        comMemPoint = Math.max(0, comMemPoint - 1);
+        inputRef.current.value = comMem[comMemPoint];
+        return;
+      } else if (e.code === "ArrowDown") {
+        comMemPoint = Math.min(comMem.length - 1, comMemPoint + 1);
+        inputRef.current.value = comMem[comMemPoint];
+        return;
       }
-      inputRef.current.value = "";
+      if (trim(inputRef.current?.value || "") === "") {
+        inputRef.current.value = "";
+        return;
+      }
+      if (e.code === "Enter" || e.code === "NumpadEnter") {
+        proccessInput(inputRef.current.value || "");
+
+        if (comMem[comMem.length - 2] !== inputRef.current.value) {
+          comMem.splice(-1, 0, inputRef.current.value);
+          comMemPoint = comMem.length - 1;
+        }
+        inputRef.current.value = "";
+      }
     }
   }
+
   return (
     <div
       onClick={() => {
@@ -349,6 +353,12 @@ export default function Terminal() {
       <div className="text-green-400">
         <div className="lg:flex items-center block space-x-3">
           <Terminalintro />
+        </div>
+        <span></span>
+        <div>
+          <p>
+            Type &apos;<strong>help</strong>&apos; to see available commands.
+          </p>
         </div>
         {output.map((dv) => (
           <div key={crypto.randomUUID()}>{dv}</div>
