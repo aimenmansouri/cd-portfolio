@@ -333,7 +333,7 @@ export default function Terminal() {
         inputRef.current.value = "";
         return;
       }
-      if (e.code === "Enter" || e.code === "NumpadEnter") {
+      if (e.code === "Enter" || e.code === "NumpadEnter" || e.key === "Enter") {
         proccessInput(inputRef.current.value || "");
 
         if (comMem[comMem.length - 2] !== inputRef.current.value) {
@@ -363,8 +363,8 @@ export default function Terminal() {
             Type &apos;<strong>help</strong>&apos; to see available commands.
           </p>
         </div>
-        {output.map((dv) => (
-          <div key={crypto.randomUUID()}>{dv}</div>
+        {output.map((dv, index) => (
+          <div key={index}>{dv}</div>
         ))}
       </div>
       <div className="text-green-400 flex space-x-2">
